@@ -31,7 +31,8 @@ class CharacterController {
       }
 
       return response.json({
-        count: total, 
+        count: total,
+        pages: Math.floor(total / 20),
         next: nextURl,
         prev: prevURl,
         data: characters,
