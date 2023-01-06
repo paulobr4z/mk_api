@@ -21,7 +21,6 @@ class CharacterController {
     const prev = Number(offset) - Number(limit) < 0 ? null : Number(offset) - Number(limit);
     const prevURl = prev != null ? `${currentUrl}?limit=${limit}&offset=${prev}` : null;
 
-
     try {
       const characters = await CharactersService.findAll({ limit, offset });
 
