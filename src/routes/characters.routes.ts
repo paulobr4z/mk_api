@@ -4,7 +4,7 @@ import CharactersController from '../controllers/CharactersController';
 const charactersRouter = Router();
 
 charactersRouter.get('/', CharactersController.findAll);
-charactersRouter.get('/:id', CharactersController.findById);
+charactersRouter.get('/:params', CharactersController.findOne);
 charactersRouter.post('/', CharactersController.create);
 
 export { charactersRouter };

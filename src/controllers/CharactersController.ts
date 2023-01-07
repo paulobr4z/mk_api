@@ -3,6 +3,10 @@ import mongoose from "mongoose";
 import CharactersService from "../services/CharactersService";
 import { ICharacter, IPagination } from "../types";
 
+interface IParams {
+  params: String;
+}
+
 class CharacterController {
   async findAll (request: Request, response:Response) {
     let { limit, offset } = request.query as unknown as IPagination;
@@ -12,7 +16,7 @@ class CharacterController {
     limit = Number(limit);
     offset = Number(offset);
 
-    if (!limit) limit = 20;
+    if (!limit) limit = 10;
     if (!offset) offset = 0;
 
     const next = Number(offset) + Number(limit);
@@ -32,7 +36,7 @@ class CharacterController {
 
       return response.json({
         count: total,
-        pages: Math.floor(total / 20),
+        pages: Math.ceil(total / 10),
         next: nextURl,
         prev: prevURl,
         data: characters,
@@ -46,30 +50,43 @@ class CharacterController {
     }
   }
 
-  async findById (request:Request, response:Response) {
-    const id = request.params.id;
+  async findOne (request:Request, response:Response) {
+    const { params } = request.params as unknown as IParams;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return response.status(400).json({
-        message: 'Invalid ID'
-      })
-    }
-
-    try {
-      const character = await CharactersService.findById(id);
-
-      if (!character) {
-        return response.status(400).json({
-          message: 'User not found!'
-        })
+    if (mongoose.Types.ObjectId.isValid(`${params}`)) {
+      try {
+        const character = await CharactersService.findById(`${params}`);
+  
+        if (!character) {
+          return response.status(400).json({
+            message: 'User not found!'
+          })
+        }
+  
+        return response.json(character);
+      } catch (error) {
+        return response.status(500).send({
+          error: "Internal Server Error!",
+          message: error
+        })      
       }
-
-      return response.json(character);
-    } catch (error) {
-      return response.status(500).send({
-        error: "Internal Server Error!",
-        message: error
-      })      
+    } else {
+      try {
+        const character = await CharactersService.findByName(`${params}`);
+  
+        if (!character) {
+          return response.status(400).json({
+            message: 'User not found!'
+          })
+        }
+  
+        return response.json(character);
+      } catch (error) {
+        return response.status(500).send({
+          error: "Internal Server Error!",
+          message: error
+        })      
+      }
     }
   }
 

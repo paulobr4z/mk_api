@@ -9,12 +9,22 @@ async function findById(id: string) {
   return await Character.findById(id);  
 }
 
+async function findByName(name: string) {
+  return await Character.findOne({name: { $regex : new RegExp(name, "i") } });
+}
+
 async function countCharacters() {
-  return await Character.countDocuments();  
+  return await Character.countDocuments();
 }
 
 async function create(CharacterInfo: ICharacter) {
   return await Character.create(CharacterInfo);  
 }
 
-export default { create, findAll, findById, countCharacters };
+export default { 
+  create,
+  findAll,
+  findById,
+  findByName,
+  countCharacters
+};
