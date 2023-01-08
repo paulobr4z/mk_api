@@ -10,7 +10,7 @@ Base url: ```https://mkapi.up.railway.app/api/```
 
 ### Characters
 
-Get all: https://mkapi.up.railway.app/api/characters
+Get all: [https://mkapi.up.railway.app/api/characters](https://mkapi.up.railway.app/api/characters)
 
 Get by id: https://mkapi.up.railway.app/api/characters/63b839cf3bf0c1070c1dd122
 
