@@ -10,8 +10,9 @@ Base url: ```https://mkapi.up.railway.app/api/```
 
 ### Characters
 
-Get all: <a href="https://mkapi.up.railway.app/api/characters" target="_blank">https://mkapi.up.railway.app/api/characters</a>
+Get all: [https://mkapi.up.railway.app/api/characters](https://mkapi.up.railway.app/api/characters)
 
-Get by id: <a href="https://mkapi.up.railway.app/api/characters/63b839cf3bf0c1070c1dd122" target="_blank">https://mkapi.up.railway.app/api/characters/63b839cf3bf0c1070c1dd122</a> 
+Get by id: [https://mkapi.up.railway.app/api/characters/63b839cf3bf0c1070c1dd122](https://mkapi.up.railway.app/api/characters/63b839cf3bf0c1070c1dd122)
 
-Get by name: <a href="https://mkapi.up.railway.app/api/characters/jax">https://mkapi.up.railway.app/api/characters/jax</a>
+Get by name: [https://mkapi.up.railway.app/api/characters/jax](https://mkapi.up.railway.app/api/characters/jax)
+
