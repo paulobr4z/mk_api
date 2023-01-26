@@ -9,6 +9,10 @@ async function findById(id: string) {
   return await Character.findById(id);  
 }
 
+async function findByGame(game: string) {
+  return await Character.find({games: game});
+}
+
 async function findByName(name: string) {
   return await Character.findOne({name: { $regex : new RegExp(name, "i") } });
 }
@@ -26,5 +30,6 @@ export default {
   findAll,
   findById,
   findByName,
+  findByGame,
   countCharacters
 };

@@ -12,10 +12,11 @@ const Character = new Schema({
   fighting_styles: [{ type: String }],
   image: { type: String },
   fatalities: [{ type: String }],
+  games: [{ type: String }],
   created_at: {
     type: Date,
     default: Date.now
   }
-})
+}, { versionKey: false })
 
 export default model("Character", Character)

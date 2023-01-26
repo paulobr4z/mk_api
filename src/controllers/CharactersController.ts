@@ -90,6 +90,23 @@ class CharacterController {
     }
   }
 
+  async findByGame (request:Request, response:Response) {
+    try {
+      const { params } = request.params;
+      const characters = await CharactersService.findByGame(params.toUpperCase());
+
+      return response.json({
+        count: characters.length,
+        data: characters,
+      });
+
+      return response.json(characters);
+    } catch (error) {
+      console.log(error)      
+    }
+
+  }
+
   async create (request:Request, response:Response) {    
     try {
       const characterInfo:ICharacter = request.body;
