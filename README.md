@@ -16,3 +16,4 @@ Get by id: <a href="https://mkapi.up.railway.app/api/characters/63b839cf3bf0c107
 
 Get by name: <a href="https://mkapi.up.railway.app/api/characters/jax" target="_blank" rel="noopener noreferrer">/characters/jax</a>
 
+Get by game: <a href="https://mkapi.up.railway.app/api/characters/jax" target="_blank" rel="noopener noreferrer">/characters/game/mk11</a> (only mk11 for now)
