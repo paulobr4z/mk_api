@@ -6,6 +6,8 @@ Mortal Kombat API é baseado em uma série de jogos criados pelo estúdio de Chi
 
 Base url: ```https://mkapi.up.railway.app/api/```
 
+Preview: https://mk-api-docs.vercel.app/
+
 ## Endpoints
 
 ### Characters
